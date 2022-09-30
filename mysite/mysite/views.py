@@ -8,3 +8,6 @@ def index(request):
 
 def about(request):
     return HttpResponse('about')
+
+def navigator(request):
+    return HttpResponse('<a href="https://www.facebook.com">facebook</a> <br> <a href="https://www.instagram.com">instagram</a>')
