@@ -22,5 +22,7 @@ urlpatterns = [
     path('',views.index,name='index'),
     path('about',views.about,name='about'),  
     path('navigator',views.navigator,name='navigator'),
-    path('textutils',views.textutils,name='textutils')
+    path('textutils',views.textutils,name='textutils'),
+    path('textutils2',views.textutils2,name='textutils2'),
+    path('analyze',views.analyze,name='analyze')
 ]

@@ -16,3 +16,20 @@ def navigator(request):
 def textutils(request):
     params={'name':'animesh','place':'chaand'}
     return render(request,'index.html',params)
+
+def textutils2(request):
+    return render(request,'index2.html')
+
+def analyze(request):
+    djtext=request.GET.get('text','default')
+    removepunc=request.GET.get('removepunc','off')
+    if removepunc=='on':
+        analyzed_text=''
+        punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        for char in djtext:
+            if char not in punc:
+                analyzed_text+=char
+        params={'purpose':'remove punctuations','analyzed_text':analyzed_text}
+        return render(request,'analyze.html',params)
+    else:
+        return HttpResponse('Error')
