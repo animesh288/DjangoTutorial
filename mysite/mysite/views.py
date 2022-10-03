@@ -21,11 +21,11 @@ def textutils2(request):
     return render(request,'index3.html')
 
 def analyze(request):
-    djtext=request.GET.get('text','default')
-    removepunc=request.GET.get('removepunc','off')
-    uppercase=request.GET.get('uppercase','off')
-    removenewline=request.GET.get('removenewline','off');
-    countchar=request.GET.get('countchar','off')
+    djtext=request.POST.get('text','default')
+    removepunc=request.POST.get('removepunc','off')
+    uppercase=request.POST.get('uppercase','off')
+    removenewline=request.POST.get('removenewline','off');
+    countchar=request.POST.get('countchar','off')
     if removepunc=='on':
         analyzed_text=''
         punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
@@ -43,7 +43,7 @@ def analyze(request):
     elif removenewline=='on':
         analyzed_text=''
         for char in djtext:
-            if(not(char=='\n')):
+            if(not(char=='\n' or char=='\r')):
                 analyzed_text+=char
         params={'purpose':'remove newLine','analyzed_text':analyzed_text}
         return render(request,'analyze2.html',params)
