@@ -3,5 +3,19 @@ from django.http import HttpResponse
 # Create your views here.
 
 def index(request):
-    return HttpResponse("index shop")
+    return render(request,'shop/index.html')
+
+def about(request):
+
+def contact(request):
+
+def tracker(request):
+
+def search(request):
+
+def productView(request):
+
+def checkout(request):
+
+
 
